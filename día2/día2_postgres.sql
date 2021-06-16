@@ -17,9 +17,9 @@ CREATE TABLE peliculas (
 \copy peliculas FROM 'peliculas.csv' csv header;
 
 CREATE TABLE reparto (
-    id INT,
+    pelicula_id INT,
     actor VARCHAR(50),
-    FOREIGN KEY (id) REFERENCES peliculas(id)
+    FOREIGN KEY (pelicula_id) REFERENCES peliculas(id)
 );
 
 \copy reparto FROM 'reparto.csv' csv;
@@ -38,6 +38,6 @@ SELECT MAX(LENGTH(pelicula)) as longitud_maxima FROM peliculas;
 
 SELECT actor, pelicula FROM reparto
 INNER JOIN peliculas
-ON reparto.id = peliculas.id
+ON reparto.peliculas_id = peliculas.id
 WHERE peliculas.id = 2
 LIMIT 1;
