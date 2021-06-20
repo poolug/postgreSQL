@@ -60,7 +60,7 @@ ON a.id = b.usuario_id
 WHERE b.usuario_id IS NULL;
 
 -- 7. Listar todos los post con sus comentarios (incluyendo aquellos que no poseen comentarios).
-SELECT a.titulo, b.texto
+SELECT a.id, a.titulo, b.post_id, b.texto
 FROM posts AS a
 FULL OUTER JOIN comentarios AS b
 ON a.id = b.post_id
